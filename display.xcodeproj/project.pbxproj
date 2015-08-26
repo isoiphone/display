@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F0044D4D1B8D8A1A008C4348 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F045C1F41B8D885400D46963 /* SDL2.framework */; };
 		F0044D501B8D9470008C4348 /* display.c in Sources */ = {isa = PBXBuildFile; fileRef = F0044D4F1B8D9470008C4348 /* display.c */; };
+		F0044D531B8DAC5C008C4348 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = F0044D511B8DAC5C008C4348 /* image.c */; };
 		F045C1F51B8D885400D46963 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F045C1F41B8D885400D46963 /* SDL2.framework */; };
 		F045C1F71B8D888600D46963 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F045C1F61B8D888600D46963 /* main.c */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		F0044D4E1B8D9465008C4348 /* display.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = display.h; sourceTree = "<group>"; };
 		F0044D4F1B8D9470008C4348 /* display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display.c; sourceTree = "<group>"; };
+		F0044D511B8DAC5C008C4348 /* image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image.c; sourceTree = "<group>"; };
+		F0044D521B8DAC5C008C4348 /* image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = image.h; sourceTree = "<group>"; };
 		F045C1EA1B8D878900D46963 /* display */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = display; sourceTree = BUILT_PRODUCTS_DIR; };
 		F045C1F41B8D885400D46963 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		F045C1F61B8D888600D46963 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 				F045C1F61B8D888600D46963 /* main.c */,
 				F0044D4E1B8D9465008C4348 /* display.h */,
 				F0044D4F1B8D9470008C4348 /* display.c */,
+				F0044D521B8DAC5C008C4348 /* image.h */,
+				F0044D511B8DAC5C008C4348 /* image.c */,
 			);
 			path = display;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0044D531B8DAC5C008C4348 /* image.c in Sources */,
 				F0044D501B8D9470008C4348 /* display.c in Sources */,
 				F045C1F71B8D888600D46963 /* main.c in Sources */,
 			);

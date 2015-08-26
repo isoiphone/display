@@ -5,7 +5,7 @@
  */
 
 #include "display.h"
-
+#include "image.h"
 #include <SDL2/SDL.h>
 
 #ifndef MAX
@@ -51,7 +51,21 @@ void tick_image() {
     display_buffer(image_cat);
 }
 
-void (*tick_ptrs[])(void) = {tick_boring, tick_bounce, tick_noise, tick_image};
+void tick_checkerboard() {
+    uint8_t byte = 0xFF;
+    for (int y=0; y<display_height/8; ++y) {
+        for (int x=0; x<display_width; ++x) {
+            if (x%8 == 0) {
+                byte = ~byte;
+            }
+            image_put(byte);
+        }
+        byte = ~byte;
+    }
+    image_flush();
+}
+
+void (*tick_ptrs[])(void) = {tick_boring, tick_bounce, tick_noise, tick_image, tick_checkerboard};
 
 int main(int argc, char* args[])
 {
