@@ -62,7 +62,7 @@ void display_update() {
     SDL_RenderPresent(renderer);
 }
 
-void display_color(uint8_t white) {
+void display_color(int8_t white) {
     if (white) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     } else {
@@ -70,13 +70,13 @@ void display_color(uint8_t white) {
     }
 }
 
-void display_clear(uint8_t white) {
+void display_clear(int8_t white) {
     display_color(white);
     SDL_RenderClear(renderer);
 }
 
-void display_rect(uint8_t white, uint8_t x, uint8_t y, uint8_t w, uint8_t h) {
+void display_rect(int8_t white, int8_t x, int8_t y, int8_t w, int8_t h) {
     display_color(white);
-    SDL_Rect r = {x, y, w*display_scale, h*display_scale};
+    SDL_Rect r = {x*display_scale, y*display_scale, w*display_scale, h*display_scale};
     SDL_RenderFillRect(renderer, &r);
 }
