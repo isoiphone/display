@@ -7,7 +7,7 @@ static SDL_Window *window;
 static SDL_Renderer *renderer;
 
 static int display_initialized = 0;
-static int display_scale = 1;
+static int display_scale = 4;
 
 void display_init() {
     if (!display_initialized) {
