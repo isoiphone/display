@@ -39,7 +39,12 @@ void tick_bounce() {
     by += dy;
 }
 
-void (*tick_ptrs[])(void) = {tick_boring, tick_bounce};
+void tick_image() {
+    uint8_t image[display_width*display_height/8]; // looks good uninitialized
+    display_buffer(image);
+}
+
+void (*tick_ptrs[])(void) = {tick_boring, tick_bounce, tick_image};
 
 int main(int argc, char* args[])
 {

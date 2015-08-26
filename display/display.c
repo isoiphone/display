@@ -80,3 +80,17 @@ void display_rect(int8_t white, int8_t x, int8_t y, int8_t w, int8_t h) {
     SDL_Rect r = {x*display_scale, y*display_scale, w*display_scale, h*display_scale};
     SDL_RenderFillRect(renderer, &r);
 }
+
+// this is how the SSD1306 displays its data
+void display_buffer(const uint8_t *buffer) {
+    const uint8_t* pb = buffer;
+    for (int row=0; row<display_height/8; ++row) {
+        for (int col=0; col<display_width; ++col) {
+            for (int y=0; y<8; ++y) {
+                const int white = (*pb) & (1<<y);
+                display_rect(white, col, (row*8)+(y), 1, 1);
+            }
+            ++pb;
+        }
+    }
+}
