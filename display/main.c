@@ -52,15 +52,16 @@ void tick_image() {
 }
 
 void tick_checkerboard() {
-    uint8_t byte = 0xFF;
-    for (int y=0; y<display_height/8; ++y) {
-        for (int x=0; x<display_width; ++x) {
-            if (x%8 == 0) {
-                byte = ~byte;
+    uint8_t row,block,square;
+    uint8_t pattern = 0;
+    for (row=8; row!=0; --row) {
+        for (block=16; block!=0; --block) {
+            for (square=8; square!=0; --square) {
+                image_put(pattern);
             }
-            image_put(byte);
+            pattern = ~pattern;
         }
-        byte = ~byte;
+        pattern = ~pattern;
     }
     image_flush();
 }
