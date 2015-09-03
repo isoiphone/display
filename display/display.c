@@ -88,7 +88,7 @@ void display_buffer(const uint8_t *buffer) {
         for (int col=0; col<display_width; ++col) {
             for (int y=0; y<8; ++y) {
                 const int white = (*pb) & (1<<y);
-                display_rect(!white, col, (row*8)+(y), 1, 1);
+                display_rect(white, col, (row*8)+(y), 1, 1);
             }
             ++pb;
         }

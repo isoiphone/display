@@ -6,6 +6,7 @@
 
 #include "display.h"
 #include "image.h"
+#include "mandelbrot.h"
 #include <SDL2/SDL.h>
 
 #ifndef MAX
@@ -66,7 +67,72 @@ void tick_checkerboard() {
     image_flush();
 }
 
-void (*tick_ptrs[])(void) = {tick_boring, tick_bounce, tick_noise, tick_image, tick_checkerboard};
+uint8_t fx=64, fy=32;
+
+void update_focus() {
+    static int8_t dx=1;
+    static int8_t dy=1;
+    
+    if (fx == 0 || fx == display_width-1) {
+        dx = -dx;
+    }
+    fx += dx;
+    
+    if (fy == 0 || fy == display_height-1) {
+        dy = -dy;
+    }
+    fy += dy;
+}
+
+static inline uint8_t texture(uint8_t x, uint8_t y) {
+//    return (y/8)%2 == 0 ? (x/8)%2==0 : (x/8)%2!=0;
+    
+    int dx = (x-fx);
+    dx *= dx;
+    
+    int dy = (y-fy);
+    dy *= dy;
+    
+    if (dx+dy < 32) {
+//        return 1;
+//        return ((x+y)/8)%2==0;
+        return (y/4)%2 == 0 ? (x/4)%2==0 : (x/4)%2!=0;
+    }
+    return 0;
+}
+
+void tick_texture() {
+    update_focus();
+    
+    uint8_t page,col;
+    for (page=0; page<8; ++page) {
+        for (col=0; col<128; ++col) {
+            uint8_t y = page<<3;
+            uint8_t byte = texture(col, y)
+                            | texture(col, y+1)<<1
+                            | texture(col, y+2)<<2
+                            | texture(col, y+3)<<3
+                            | texture(col, y+4)<<4
+                            | texture(col, y+5)<<5
+                            | texture(col, y+6)<<6
+                            | texture(col, y+7)<<7;
+            image_put(byte);
+        }
+    }
+    image_flush();
+}
+
+void tick_mandelbrot() {
+    uint8_t page,col;
+    for (page=0; page<8; ++page) {
+        for (col=0; col<128; ++col) {
+            image_put( mandelbrot(col, page*8) );
+        }
+    }
+    image_flush();
+}
+
+void (*tick_ptrs[])(void) = {tick_mandelbrot, tick_texture, tick_boring, tick_bounce, tick_noise, tick_image, tick_checkerboard};
 
 int main(int argc, char* args[])
 {

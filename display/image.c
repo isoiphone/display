@@ -12,4 +12,5 @@ void image_put(uint8_t byte) {
 
 void image_flush() {
     display_buffer(image);
+    cur_index = 0;
 }

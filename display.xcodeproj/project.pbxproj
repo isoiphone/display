@@ -12,6 +12,7 @@
 		F0044D531B8DAC5C008C4348 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = F0044D511B8DAC5C008C4348 /* image.c */; };
 		F045C1F51B8D885400D46963 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F045C1F41B8D885400D46963 /* SDL2.framework */; };
 		F045C1F71B8D888600D46963 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F045C1F61B8D888600D46963 /* main.c */; };
+		F0478E901B98266600509F6A /* mandelbrot.c in Sources */ = {isa = PBXBuildFile; fileRef = F0478E8E1B98266600509F6A /* mandelbrot.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		F045C1EA1B8D878900D46963 /* display */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = display; sourceTree = BUILT_PRODUCTS_DIR; };
 		F045C1F41B8D885400D46963 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		F045C1F61B8D888600D46963 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		F0478E8E1B98266600509F6A /* mandelbrot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mandelbrot.c; sourceTree = "<group>"; };
+		F0478E8F1B98266600509F6A /* mandelbrot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mandelbrot.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				F0044D4F1B8D9470008C4348 /* display.c */,
 				F0044D521B8DAC5C008C4348 /* image.h */,
 				F0044D511B8DAC5C008C4348 /* image.c */,
+				F0478E8E1B98266600509F6A /* mandelbrot.c */,
+				F0478E8F1B98266600509F6A /* mandelbrot.h */,
 			);
 			path = display;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0044D531B8DAC5C008C4348 /* image.c in Sources */,
+				F0478E901B98266600509F6A /* mandelbrot.c in Sources */,
 				F0044D501B8D9470008C4348 /* display.c in Sources */,
 				F045C1F71B8D888600D46963 /* main.c in Sources */,
 			);
